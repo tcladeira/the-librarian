@@ -8,24 +8,24 @@ class BookStatus(Enum):
     CHECKED_OUT = "CHECKED_OUT"
     LOST = "LOST"
     IN_REPAIR = "IN_REPAIR"
+    NOT_READY_FOR_RENT = "NOT_READY_FOR_RENT"
 
 @dataclass
 class Book:
     isbn: str
     author: str
     title: str
-    id: int
+    id: int | None
     publication_year: int
     book_status: BookStatus
 
-
 @dataclass
 class Member:
-    member_id: int 
+    member_id: int | None
     member_name: str
     email: str
-    fees: float
     address: str
+    fees: float = 0.0
 
 @dataclass
 class Loan:
