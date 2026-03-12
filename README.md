@@ -25,27 +25,33 @@ librarian/
 
 Designing Models:
 
+Member ---- Loan ---- Book
+
 BOOK:
 isbn -> string (unique)
 author -> string
 title -> string
 id -> int (unique)
-publication -> string
+publication_year -> int
+book_status -> BOOKSTATUS
 
 BOOKSTATUS (ENUM):
 available - 1
-checkOut - 2
+checked_out - 2
 lost - 3
-inRepear - 4
+in_repair - 4
 
 MEMBERS:
-memberId -> int (unique)
-memberStatus -> diccionary
-rentedBooks -> list(BOOKS)
+member_id -> int (unique)
+member_name -> string
 email -> string (unique)
 fees -> float
+address -> string
 
 LOAN:
-loanNumber -> int (unique)
-borrowDate -> datetime
-returnDate -> datetime
+book_id -> int
+member_id -> int
+loan_number -> int (unique)
+borrow_date -> datetime
+due_date -> datetime
+returned_date -> datetime | None
